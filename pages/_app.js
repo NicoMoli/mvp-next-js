@@ -1,10 +1,17 @@
 import "../styles/globals.css"
 import { Provider } from "next-auth/client"
+import AuthGuard from "../helpers/hocs/auth"
 
 function MyApp({ Component, pageProps }) {
   return (
     <Provider session={pageProps.session}>
-      <Component {...pageProps} />
+      {Component.requireAuth ? (
+        <AuthGuard>
+          <Component {...pageProps} />
+        </AuthGuard>
+      ) : (
+        <Component {...pageProps} />
+      )}
     </Provider>
   )
 }
