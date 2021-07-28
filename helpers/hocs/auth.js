@@ -3,7 +3,9 @@ import { useRouter } from "next/router"
 
 const AuthGuard = ({ children }) => {
   // checks whether we are on client / browser or server.
-  if (typeof window !== "undefined") {
+  const isBrowser = () => typeof window !== "undefined"
+
+  if (isBrowser()) {
     const router = useRouter()
     const [session, loading] = useSession()
 

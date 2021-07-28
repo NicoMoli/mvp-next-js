@@ -17,20 +17,31 @@ export default function Home() {
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          Welcome to <a href="https://nextjs.org">Next.js!</a> MVP Training
         </h1>
-        {!session ? (
-          <>
-            <button onClick={signIn}> Por favor, LogIn with GitHub</button>
-          </>
-        ) : (
-          <>
-            <h3>Signed in as {session.user.name}</h3>
-            <img height={100} src={session.user.image} />
-            <button onClick={signOut}> GitHub LogOut</button>
-            <Link href="/home">Go to HOME!</Link>
-          </>
-        )}
+
+        <div>
+          {!session ? (
+            <a
+              href={`/api/auth/signin`}
+              onClick={(e) => {
+                e.preventDefault()
+                signIn(null, {
+                  callbackUrl: `${process.env.NEXT_PUBLIC_BASE_URL}/home`,
+                })
+              }}
+            >
+              Sign in
+            </a>
+          ) : (
+            <div>
+              <h3>Signed in as {session.user.name}</h3>
+              <img height={100} src={session.user.image} />
+              <button onClick={signOut}> GitHub LogOut</button>
+              <Link href="/home">Go to HOME!</Link>
+            </div>
+          )}
+        </div>
       </main>
 
       <footer className={styles.footer}>

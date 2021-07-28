@@ -9,6 +9,14 @@ export default NextAuth({
       clientSecret: process.env.GITHUB_SECRET,
     }),
   ],
+  pages: {
+    // signIn: "/",
+  },
   // A database is optional, but required to persist accounts in a database
   // database: process.env.DATABASE_URL,
+  callbacks: {
+    async redirect(url, baseUrl) {
+      return url.startsWith(baseUrl) ? url : baseUrl
+    },
+  },
 })

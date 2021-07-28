@@ -13,7 +13,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 }
 
@@ -119,3 +119,16 @@
     flex-direction: column;
   }
 }
+
+.loginButtons {
+  width: 280px;
+  height: 40px;
+}
+
+.loginButtons:hover {
+  border-radius: 15px;
+  background-color: black;
+  color: white;
+}
+
+
