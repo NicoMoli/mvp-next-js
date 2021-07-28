@@ -1,18 +1,21 @@
 import "../styles/globals.css"
 import { Provider } from "next-auth/client"
+import { ChakraProvider } from "@chakra-ui/react"
 import AuthGuard from "../helpers/hocs/auth"
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Provider session={pageProps.session}>
-      {Component.requireAuth ? (
-        <AuthGuard>
+    <ChakraProvider>
+      <Provider session={pageProps.session}>
+        {Component.requireAuth ? (
+          <AuthGuard>
+            <Component {...pageProps} />
+          </AuthGuard>
+        ) : (
           <Component {...pageProps} />
-        </AuthGuard>
-      ) : (
-        <Component {...pageProps} />
-      )}
-    </Provider>
+        )}
+      </Provider>
+    </ChakraProvider>
   )
 }
 
