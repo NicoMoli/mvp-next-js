@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { useRouter } from "next/router"
 import { useSession, signIn } from "next-auth/client"
 import { Button, Flex, Text, useColorModeValue } from "@chakra-ui/react"
+import styles from "../styles/Home.module.css"
 
 export default function Home() {
   const [session, loading] = useSession()
@@ -15,13 +16,9 @@ export default function Home() {
   return (
     <div>
       {!session && !loading && (
-        <Flex
-          height="100vh"
-          alignItems="center"
-          justifyContent="center"
-          background="gray.800"
-        >
+        <Flex className={styles.container}>
           <Flex
+            className={styles.loginContainer}
             direction="column"
             background={formBackground}
             p={12}

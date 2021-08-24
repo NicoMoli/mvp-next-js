@@ -1,11 +1,14 @@
 .container {
-  min-height: 100vh;
-  padding: 0 0.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   height: 100vh;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(45deg, #5e6bda 50%, #9fc2c2 50%);
+}
+
+.loginContainer {
+  flex-direction: column;
+  padding: 12 12 12 12;
+  border-radius: 12;
 }
 
 .main {
@@ -129,6 +132,10 @@
   border-radius: 15px;
   background-color: black;
   color: white;
+}
+
+.prueba {
+  background-color: red;
 }
 
 
