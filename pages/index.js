@@ -1,7 +1,7 @@
 import { useEffect } from "react"
 import { useRouter } from "next/router"
 import { useSession } from "next-auth/client"
-// import styles from "../styles/Home.module.css"
+import Header from "../components/header/header"
 
 export default function Home() {
   const [session, loading] = useSession()
@@ -16,5 +16,9 @@ export default function Home() {
   // Figma
   // https://www.figma.com/file/BYjaSbdPyhEL0ucneDlIQ0/Dev-Challenge?node-id=1%3A218
 
-  return <div></div>
+  return (
+    <>
+      <Header />
+    </>
+  )
 }
