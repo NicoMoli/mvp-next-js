@@ -1,8 +1,19 @@
+@import './fonts/basement-grotesque.css';
+
 html,
 body {
+  height: 100%;
+  background: black;
+  color: white;
+  min-height: 100vh;
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+  font-family: 'Basement Grotesque', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+button {
+  font-family: 'Basement Grotesque', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
@@ -12,7 +23,7 @@ a {
 }
 
 * {
-  box-sizing: inherit;
+  box-sizing: border-box;
 }
 
 
