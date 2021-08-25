@@ -1,0 +1,39 @@
+.containerImgHeader {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.marqueeContainer {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border: 1px solid #FFFFFF;
+    border-right: none;
+    border-left: none;
+    height: 44px;
+}
+
+.marquee {
+    animation : slide 5s linear infinite;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    white-space: nowrap;
+}
+
+@keyframes slide {
+    0% {
+      transform: translatex(0%)
+    }
+  
+    100% {
+      transform: translatex(100%)
+    }
+  }
+
+@media (min-width: 1025px) {
+    .container {
+        display: none;
+    }
+}

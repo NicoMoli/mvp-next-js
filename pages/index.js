@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { useRouter } from "next/router"
 import { useSession } from "next-auth/client"
 import Header from "../components/header/header"
+import ListProducts from "../components/list-products/listProducts"
 
 export default function Home() {
   const [session, loading] = useSession()
@@ -19,6 +20,7 @@ export default function Home() {
   return (
     <>
       <Header />
+      <ListProducts />
     </>
   )
 }

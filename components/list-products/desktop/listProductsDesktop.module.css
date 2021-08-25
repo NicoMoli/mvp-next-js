@@ -1,0 +1,9 @@
+.container {
+    display: none;
+}
+
+@media (min-width: 1025px) {
+    .container {
+        display: block;
+    }
+}
