@@ -22,6 +22,31 @@
     white-space: nowrap;
 }
 
+.itemsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0px 16px 0px 16px;
+
+}
+
+.itemImage {
+  display: flex;
+  height: 392px;
+  background: linear-gradient(0deg, #1D1D1D 0%, rgba(21, 21, 21, 0) 100%);
+  border-bottom: 2px solid #FFFFFF;
+}
+
+.descriptionPrice {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.itemDescription {
+  font-size: 22px;
+}
+
 @keyframes slide {
     0% {
       transform: translatex(0%)

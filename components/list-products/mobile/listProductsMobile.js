@@ -13,6 +13,20 @@ const ListProductsMobile = () => {
             {"A man can't have enough basement swag."}
           </div>
         </div>
+
+        <div className={styles.itemsContainer}>
+          <div className={styles.itemImage}>
+            <Image
+              src="/remera-basement-black.png"
+              width={361}
+              height={360}
+            ></Image>
+          </div>
+          <div className={styles.descriptionPrice}>
+            <p className={styles.itemDescription}> Black t-shirt </p>
+            <p className={styles.itemDescription}> $7.95 </p>
+          </div>
+        </div>
       </div>
     </>
   )
