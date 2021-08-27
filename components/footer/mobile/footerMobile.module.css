@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    justify-content: center;
+    padding: 0px 16px 0px 16px;
+}
+
+@media (min-width: 1025px) {
+    .container {
+        display: none;
+    }
+}

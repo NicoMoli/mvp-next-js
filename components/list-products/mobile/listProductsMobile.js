@@ -1,7 +1,7 @@
 import styles from "./listProductsMobile.module.css"
 import Image from "next/image"
 
-const ListProductsMobile = () => {
+const ListProductsMobile = ({ products }) => {
   return (
     <>
       <div className={styles.container}>
@@ -15,17 +15,17 @@ const ListProductsMobile = () => {
         </div>
 
         <div className={styles.itemsContainer}>
-          <div className={styles.itemImage}>
-            <Image
-              src="/remera-basement-black.png"
-              width={361}
-              height={360}
-            ></Image>
-          </div>
-          <div className={styles.descriptionPrice}>
-            <p className={styles.itemDescription}> Black t-shirt </p>
-            <p className={styles.itemDescription}> $7.95 </p>
-          </div>
+          {products?.map((item, key) => (
+            <div key={key}>
+              <div className={styles.itemImage}>
+                <Image src={item.image} width={361} height={360}></Image>
+              </div>
+              <div className={styles.descriptionPrice}>
+                <p className={styles.itemDescription}> {item.name} </p>
+                <p className={styles.itemDescription}> ${item.price}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </>

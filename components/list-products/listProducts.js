@@ -1,11 +1,11 @@
 import ListProductsMobile from "../list-products/mobile/listProductsMobile"
 import ListProductsDesktop from "../list-products/desktop/listProductsDesktop"
 
-const ListProducts = () => {
+const ListProducts = ({ products }) => {
   return (
     <>
       <ListProductsDesktop />
-      <ListProductsMobile />
+      <ListProductsMobile products={products} />
     </>
   )
 }

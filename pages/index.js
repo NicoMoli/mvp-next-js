@@ -3,8 +3,9 @@ import { useRouter } from "next/router"
 import { useSession } from "next-auth/client"
 import Header from "../components/header/header"
 import ListProducts from "../components/list-products/listProducts"
+import Footer from "../components/footer/footer"
 
-export default function Home() {
+export default function Home({ products }) {
   const [session, loading] = useSession()
   const router = useRouter()
 
@@ -20,7 +21,25 @@ export default function Home() {
   return (
     <>
       <Header />
-      <ListProducts />
+      <ListProducts products={products} />
+      <Footer />
     </>
   )
+}
+
+export async function getStaticProps() {
+  try {
+    const res = await fetch("http://localhost:3000/api/products/getProductList")
+    const products = await res.json()
+
+    if (!products) {
+      return {
+        notFound: true,
+      }
+    }
+
+    return {
+      props: products, // will be passed to the page component as props
+    }
+  } catch (error) {}
 }
