@@ -1,11 +1,18 @@
 import styles from "./cartModalMobile.module.css"
 import Image from "next/image"
 
-const CartModalMobile = () => {
+const CartModalMobile = ({ close }) => {
   return (
     <>
       <div className={styles.container}>
-        <Image src={"/closeIcon.svg"} width={80} height={20}></Image>
+        <Image
+          className={styles.closeIcon}
+          onClick={() => close()}
+          src={"/closeIcon.svg"}
+          width={80}
+          height={20}
+        ></Image>
+        <Image src={"/your-cart.svg"} width={344} height={214}></Image>
       </div>
     </>
   )

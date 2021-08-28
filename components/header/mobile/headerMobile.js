@@ -10,25 +10,26 @@ const HeaderMobile = () => {
 
   return (
     <>
-      <div className={styles.container}>
-        <div>
-          <img
-            src="/logo-basement-mobile.svg"
-            width="28.85"
-            height="40"
-            className={styles.logoBasement}
-          ></img>
+      {!openModal ? (
+        <div className={styles.container}>
+          <div>
+            <img
+              src="/logo-basement-mobile.svg"
+              width="28.85"
+              height="40"
+              className={styles.logoBasement}
+            ></img>
+          </div>
+          <div>
+            <button onClick={() => Toggle()} className={styles.buttonCart}>
+              CART (1)
+            </button>
+          </div>
         </div>
-        <div>
-          <button onClick={() => Toggle()} className={styles.buttonCart}>
-            CART (1)
-          </button>
-        </div>
-      </div>
-      {openModal && (
+      ) : (
         <CartModal selector="#cartModal">
-          <CartModalMobile />
-          <CartModalDesktop />
+          <CartModalMobile close={Toggle} />
+          <CartModalDesktop close={Toggle} />
         </CartModal>
       )}
     </>
