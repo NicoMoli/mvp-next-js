@@ -1,16 +1,7 @@
 import styles from "./listProductsMobile.module.css"
 import Image from "next/image"
 
-const ListProductsMobile = ({ products }) => {
-  const addItem = (item) => {
-    if (typeof window !== "undefined") {
-      const itemsSaveLocally =
-        JSON.parse(window.localStorage.getItem("cart")) || []
-      itemsSaveLocally.push(item)
-      window.localStorage.setItem("cart", JSON.stringify(itemsSaveLocally))
-    }
-  }
-
+const ListProductsMobile = ({ products, addItem }) => {
   return (
     <>
       <div className={styles.container}>
