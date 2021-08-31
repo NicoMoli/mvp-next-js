@@ -1,38 +1,27 @@
-import { useEffect, useState } from "react"
 import HeaderMobile from "../header/mobile/headerMobile"
 import HeaderDesktop from "../header/desktop/headerDesktop"
+import { useState } from "react"
+import CartModal from "../cartModal/cartModal"
+import CartModalMobile from "../cartModal/mobile/cartModalMobile"
+import CartModalDesktop from "../cartModal/desktop/cartModalDesktop"
 
-const Header = () => {
-  const [countItems, setCountItems] = useState(0)
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      let result = null
-      let totalCountItems = null
-      const itemsStorage = JSON.parse(window.localStorage.getItem("cart"))
-
-      if (itemsStorage?.length > 0) {
-        result = [
-          ...itemsStorage
-            .reduce((mp, item) => {
-              if (!mp.has(item.id)) mp.set(item.id, { ...item, count: 0 })
-              mp.get(item.id).count++
-              return mp
-            }, new Map())
-            .values(),
-        ]
-      }
-      result?.forEach((item) => {
-        totalCountItems += item.count
-      })
-      setCountItems(totalCountItems)
-    }
-  }, [])
+const Header = ({ cartItems, cartCount }) => {
+  const [openModal, setModal] = useState(false)
+  const Toggle = () => setModal(!openModal)
 
   return (
     <>
-      <HeaderDesktop />
-      <HeaderMobile totalItems={countItems} />
+      {!openModal ? (
+        <>
+          <HeaderDesktop />
+          <HeaderMobile totalItems={cartCount} toggle={Toggle} />
+        </>
+      ) : (
+        <CartModal selector="#cartModal">
+          <CartModalMobile close={Toggle} />
+          <CartModalDesktop close={Toggle} />
+        </CartModal>
+      )}
     </>
   )
 }

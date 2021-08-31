@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import styles from "./cartModalMobile.module.css"
 import Image from "next/image"
 
-const CartModalMobile = ({ close }) => {
+const CartModalMobile = ({ itemsOnCart, close }) => {
   const [items, setItems] = useState(null)
 
   useEffect(() => {
