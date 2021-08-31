@@ -4,7 +4,7 @@ import CartModalDesktop from "../../cartModal/desktop/cartModalDesktop"
 import CartModalMobile from "../../cartModal/mobile/cartModalMobile"
 import styles from "./headerMobile.module.css"
 
-const HeaderMobile = () => {
+const HeaderMobile = ({ totalItems }) => {
   const [openModal, setModal] = useState(false)
   const Toggle = () => setModal(!openModal)
 
@@ -22,7 +22,7 @@ const HeaderMobile = () => {
           </div>
           <div>
             <button onClick={() => Toggle()} className={styles.buttonCart}>
-              CART (1)
+              {totalItems ? `CART (${totalItems}) ` : "CART (0)"}
             </button>
           </div>
         </div>

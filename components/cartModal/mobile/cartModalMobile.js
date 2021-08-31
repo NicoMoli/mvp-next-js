@@ -40,7 +40,7 @@ const CartModalMobile = ({ close }) => {
               </p>
               <p className={styles.text}>QUANTITY: 3</p>
               <p className={styles.text}>Size M</p>
-              <p className={styles.text}>$ 12</p>
+              <p className={styles.text}>$ {item.price}</p>
             </div>
           </div>
         ))}

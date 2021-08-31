@@ -46,6 +46,10 @@
     font-size: 14px;
 }
 
+.descriptionItem {
+    text-transform: uppercase;
+}
+
 .descriptionSubItem {
     color: #999999;
 }
