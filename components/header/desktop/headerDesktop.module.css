@@ -5,5 +5,18 @@
 @media (min-width: 1025px) {
     .container {
         display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 43px 32px 50px 32px;
     }
+}
+
+.buttonCart {
+    border: 1.09091px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 40px;
+    background-color: transparent;
+    color: white;
+    height: 40px;
+    width: 112px;
 }
