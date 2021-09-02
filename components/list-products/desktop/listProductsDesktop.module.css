@@ -4,6 +4,67 @@
 
 @media (min-width: 1025px) {
     .container {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+.headerLogo {
+    padding: 0px 32px 50px 32px;
+}
+
+.marqueeContainer {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    border: 1px solid #FFFFFF;
+    border-right: none;
+    border-left: none;
+    height: 44px;
+    width: 100%;
+}
+
+.marquee {
+    animation : slide 5s linear infinite;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 24px;
+    white-space: nowrap;
+}
+
+.itemsContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 16px 0px 16px;
+}
+
+.itemImage {
+    display: flex;
+    height: 392px;
+    margin-left: 41px;
+    background: linear-gradient(0deg, #1D1D1D 0%, rgba(21, 21, 21, 0) 100%);
+    border-bottom: 2px solid #FFFFFF;
+}
+  
+.descriptionPrice {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 41px;
+    width: 100%;
+}
+  
+.itemDescription {
+    font-size: 22px;
+}
+
+@keyframes slide {
+    0% {
+      transform: translatex(0%)
+    }
+  
+    100% {
+      transform: translatex(100%)
     }
 }

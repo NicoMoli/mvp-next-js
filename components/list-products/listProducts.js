@@ -4,7 +4,7 @@ import ListProductsDesktop from "../list-products/desktop/listProductsDesktop"
 const ListProducts = ({ products, addItem }) => {
   return (
     <>
-      <ListProductsDesktop />
+      <ListProductsDesktop products={products} addItem={addItem} />
       <ListProductsMobile products={products} addItem={addItem} />
     </>
   )

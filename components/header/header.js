@@ -13,7 +13,7 @@ const Header = ({ cartItems, cartCount }) => {
     <>
       {!openModal ? (
         <>
-          <HeaderDesktop />
+          <HeaderDesktop totalItems={cartCount} toggle={Toggle} />
           <HeaderMobile totalItems={cartCount} toggle={Toggle} />
         </>
       ) : (

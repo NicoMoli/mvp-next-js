@@ -1,0 +1,13 @@
+.container {
+    display: none;
+}
+
+@media (min-width: 1025px) {
+    .container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        padding: 96px 40px 60px 40px;
+    }
+}
+
