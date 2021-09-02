@@ -8,6 +8,9 @@ const ListProductsDesktop = ({ products, addItem }) => {
         <div className={styles.headerLogo}>
           <Image src={"/header.svg"} width={1376} height={365}></Image>
         </div>
+        <div className={styles.asterisk}>
+          <Image src={"/asterisk.svg"} width={144} height={144}></Image>
+        </div>
         <div className={styles.marqueeContainer}>
           <div className={styles.marquee}>
             {"A man can't have enough basement swag."}

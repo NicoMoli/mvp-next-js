@@ -14,6 +14,10 @@
     padding: 0px 32px 50px 32px;
 }
 
+.asterisk {
+    position: relative;
+}
+
 .marqueeContainer {
     display: flex;
     align-items: center;
@@ -37,7 +41,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0px 16px 0px 16px;
+    padding: 45px 16px 0px 16px;
 }
 
 .itemImage {
