@@ -81,7 +81,7 @@ export async function getStaticProps() {
 
     if (!products) {
       return {
-        notFound: true,
+        props: { notFound: true },
       }
     }
 
@@ -90,8 +90,10 @@ export async function getStaticProps() {
     }
   } catch (error) {
     return {
-      notFound: true,
-      error: "Ha ocurrido un error inesperado, intente mas tarde!",
+      props: {
+        notFound: true,
+        error: "Ha ocurrido un error inesperado, intente mas tarde!",
+      },
     }
   }
 }
