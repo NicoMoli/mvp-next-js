@@ -76,7 +76,10 @@ export default function Home({ products }) {
 
 export async function getStaticProps() {
   try {
-    const res = await fetch("http://localhost:3000/api/products/getProductList")
+    // TODO: Read URL from .env
+    const res = await fetch(
+      "https://mvp-next-js.vercel.app//api/products/getProductList"
+    )
     const products = await res.json()
 
     if (!products) {
