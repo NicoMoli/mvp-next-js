@@ -20,3 +20,9 @@
     height: 40px;
     width: 112px;
 }
+
+.buttonCart:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}

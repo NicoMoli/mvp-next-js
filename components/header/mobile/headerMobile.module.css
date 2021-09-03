@@ -20,6 +20,12 @@
     width: 112px;
 }
 
+.buttonCart:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
 @media (min-width: 1025px) {
     .container {
         display: none;
