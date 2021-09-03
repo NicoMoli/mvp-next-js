@@ -88,5 +88,10 @@ export async function getStaticProps() {
     return {
       props: products, // will be passed to the page component as props
     }
-  } catch (error) {}
+  } catch (error) {
+    return {
+      notFound: true,
+      error: "Ha ocurrido un error inesperado, intente mas tarde!",
+    }
+  }
 }
