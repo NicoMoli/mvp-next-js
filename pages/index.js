@@ -4,7 +4,7 @@ import { useEffect, useState } from "react"
 import Header from "../components/header/header"
 import ListProducts from "../components/list-products/listProducts"
 import Footer from "../components/footer/footer"
-import reduceProducts from "../helpers/hocs/utils/reduceProducts"
+import reduceProducts from "../helpers/utils/reduceProducts"
 
 export default function Home({ products }) {
   // Luego BORRAR lo referido a github login
@@ -51,7 +51,12 @@ export default function Home({ products }) {
 
   return (
     <>
-      <Header cartItems={cart} setCart={setCart} cartCount={cartCount} />
+      <Header
+        cartItems={cart}
+        setCartCount={setCartCount}
+        setCart={setCart}
+        cartCount={cartCount}
+      />
       <ListProducts products={products} addItem={addItem} />
       <Footer />
     </>
