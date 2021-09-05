@@ -1,17 +1,7 @@
-import { useEffect, useState } from "react"
 import styles from "./cartModalMobile.module.css"
 import Image from "next/image"
 
 const CartModalMobile = ({ itemsOnCart, close }) => {
-  const [items, setItems] = useState(null)
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const itemsStorage = JSON.parse(window.localStorage.getItem("cart"))
-      setItems(itemsStorage)
-    }
-  }, [])
-
   return (
     <>
       <div className={styles.container}>
@@ -26,7 +16,7 @@ const CartModalMobile = ({ itemsOnCart, close }) => {
         <div className={styles.yourCart}>
           <Image src={"/your-cart.svg"} width={344} height={214}></Image>
         </div>
-        {items?.map((item, key) => (
+        {itemsOnCart?.map((item, key) => (
           <div key={key} className={styles.cartItem}>
             <div className={styles.itemImage}>
               <Image src={item.image} width={98} height={97}></Image>

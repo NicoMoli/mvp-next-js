@@ -2,16 +2,30 @@ import styles from "./cartModalDesktop.module.css"
 import Image from "next/image"
 import { useEffect, useState } from "react"
 
-const CartModalDesktop = ({ itemsOnCart, close }) => {
-  const [items, setItems] = useState(null)
+const CartModalDesktop = ({ itemsOnCart, setCart, close }) => {
+  const [totalPrice, setTotalPrice] = useState(0)
+  let totalPriceItems = 0
 
-  // TODO: MEJORAR ESTO!!!
+  // TODO: MEJORAR ESTO!!! ver las dependencias
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      const itemsStorage = JSON.parse(window.localStorage.getItem("cart"))
-      setItems(itemsStorage)
-    }
+    itemsOnCart?.forEach((e) => {
+      totalPriceItems += e.price
+    })
+    setTotalPrice(totalPriceItems)
   }, [])
+
+  const changeQuantity = (type, item) => {
+    const itemsStorage = JSON.parse(window.localStorage.getItem("cart"))
+    delete item.count
+    if (type === "add") {
+      itemsStorage.push(item)
+      window.localStorage.setItem("cart", JSON.stringify(itemsStorage))
+    } else {
+      const index = itemsStorage.findIndex((r) => r.id === item.id)
+      index !== -1 && itemsStorage.splice(index, 1)
+      window.localStorage.setItem("cart", JSON.stringify(itemsStorage))
+    }
+  }
 
   return (
     <>
@@ -32,7 +46,7 @@ const CartModalDesktop = ({ itemsOnCart, close }) => {
           ></Image>
         </div>
 
-        {items?.map((item, key) => (
+        {itemsOnCart?.map((item, key) => (
           <div key={key} className={styles.cartItem}>
             <div className={styles.itemImage}>
               <Image src={item.image} width={98} height={97}></Image>
@@ -44,7 +58,13 @@ const CartModalDesktop = ({ itemsOnCart, close }) => {
               <p className={[styles.text, styles.descriptionSubItem].join(" ")}>
                 {item.description}
               </p>
-              <p className={styles.text}>QUANTITY: 3</p>
+              <p className={styles.text}>QUANTITY: {item.count}</p>
+              <button onClick={() => changeQuantity("add", item)}>
+                ADD item
+              </button>
+              <button onClick={() => changeQuantity("remove", item)}>
+                DELETE item
+              </button>
               <p className={styles.text}>Size M</p>
               <p className={styles.text}>$ {item.price}</p>
             </div>
@@ -53,7 +73,7 @@ const CartModalDesktop = ({ itemsOnCart, close }) => {
 
         <div className={styles.totalPrice}>
           <p>TOTAL</p>
-          <p>$ 37.50</p>
+          <p>$ {totalPrice}</p>
         </div>
         <div className={styles.footerImage}>
           <Image src={"/checkout.svg"} width={343} height={62}></Image>

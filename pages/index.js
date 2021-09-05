@@ -4,6 +4,7 @@ import { useEffect, useState } from "react"
 import Header from "../components/header/header"
 import ListProducts from "../components/list-products/listProducts"
 import Footer from "../components/footer/footer"
+import reduceProducts from "../helpers/hocs/utils/reduceProducts"
 
 export default function Home({ products }) {
   // Luego BORRAR lo referido a github login
@@ -15,8 +16,8 @@ export default function Home({ products }) {
 
   // const [session, loading] = useSession()
   // const router = useRouter()
-  const [cart, setCart] = useState(null)
-  const [cartCount, setCartCount] = useState(null)
+  const [cart, setCart] = useState([])
+  const [cartCount, setCartCount] = useState(0)
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -24,10 +25,10 @@ export default function Home({ products }) {
       const itemsStorage = JSON.parse(window.localStorage.getItem("cart"))
 
       if (itemsStorage?.length > 0) {
-        result = reduceItems(itemsStorage)
+        result = reduceProducts(itemsStorage)
+        setCart(result.items)
+        setCartCount(result?.totalCount)
       }
-
-      setCartCount(result?.totalCount)
     }
   }, [])
 
@@ -37,28 +38,11 @@ export default function Home({ products }) {
         JSON.parse(window.localStorage.getItem("cart")) || []
       itemsSaveLocally.push(item)
       window.localStorage.setItem("cart", JSON.stringify(itemsSaveLocally))
-      const reduceResult = reduceItems(itemsSaveLocally)
 
-      setCart(reduceResult.result)
+      const reduceResult = reduceProducts(itemsSaveLocally)
+      setCart(reduceResult.items)
       setCartCount(reduceResult.totalCount)
     }
-  }
-
-  const reduceItems = (items) => {
-    let totalCountItems = null
-    const result = [
-      ...items
-        .reduce((mp, item) => {
-          if (!mp.has(item.id)) mp.set(item.id, { ...item, count: 0 })
-          mp.get(item.id).count++
-          return mp
-        }, new Map())
-        .values(),
-    ]
-    result?.forEach((item) => {
-      totalCountItems += item.count
-    })
-    return { result: result, totalCount: totalCountItems }
   }
 
   // useEffect(() => {
@@ -67,7 +51,7 @@ export default function Home({ products }) {
 
   return (
     <>
-      <Header cartItems={cart} cartCount={cartCount} />
+      <Header cartItems={cart} setCart={setCart} cartCount={cartCount} />
       <ListProducts products={products} addItem={addItem} />
       <Footer />
     </>
