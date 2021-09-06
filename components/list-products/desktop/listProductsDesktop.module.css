@@ -56,12 +56,14 @@
     display: none;
 }
 
-.item:hover .addToCart {
-    display: block;
+.itemImage:hover .addToCart {
+    display: inline-block;
     position: absolute;
     top: 28%;
     left: 15%;
+    width: 70%;
 }
+
   
 .descriptionPrice {
     display: flex;
