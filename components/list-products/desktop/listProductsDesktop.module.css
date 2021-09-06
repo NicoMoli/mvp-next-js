@@ -68,7 +68,7 @@
 .descriptionPrice {
     display: flex;
     justify-content: space-between;
-    padding: 10px 0px 0px 41px;
+    padding: 10px 0px 0px 0px;
     width: 100%;
 }
   
