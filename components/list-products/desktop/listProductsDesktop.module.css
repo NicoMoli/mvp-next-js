@@ -40,12 +40,27 @@
     padding: 80px 16px 0px 16px;
 }
 
+.item {
+    position: relative;
+    margin-left: 41px;
+}
+
 .itemImage {
     display: flex;
     height: 392px;
-    margin-left: 41px;
     background: linear-gradient(0deg, #1D1D1D 0%, rgba(21, 21, 21, 0) 100%);
     border-bottom: 2px solid #FFFFFF;
+}
+
+.addToCart {
+    display: none;
+}
+
+.item:hover .addToCart {
+    display: block;
+    position: absolute;
+    top: 28%;
+    left: 15%;
 }
   
 .descriptionPrice {

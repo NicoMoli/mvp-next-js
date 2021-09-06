@@ -15,9 +15,20 @@ const ListProductsDesktop = ({ products, addItem }) => {
         </div>
         <div className={styles.itemsContainer}>
           {products?.map((item, key) => (
-            <div key={key} onClick={() => addItem(item)}>
+            <div
+              key={key}
+              onClick={() => addItem(item)}
+              className={styles.item}
+            >
               <div className={styles.itemImage}>
                 <Image src={item.image} width={361} height={360}></Image>
+                <div className={styles.addToCart}>
+                  <Image
+                    src={"/add-to-cart.svg"}
+                    width={245}
+                    height={128}
+                  ></Image>
+                </div>
               </div>
               <div className={styles.descriptionPrice}>
                 <p className={styles.itemDescription}> {item.name} </p>
