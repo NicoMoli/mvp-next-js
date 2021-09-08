@@ -8,10 +8,14 @@ const CartModalDesktop = ({ itemsOnCart, setCart, setCartCount, close }) => {
   let totalPriceItems = 0
 
   useEffect(() => {
+    document.getElementsByClassName("index")[0].style.opacity = "0.4"
     itemsOnCart?.forEach((e) => {
       totalPriceItems += e.price
     })
     setTotalPrice(totalPriceItems)
+
+    return () =>
+      (document.getElementsByClassName("index")[0].style.opacity = "1")
   }, [itemsOnCart])
 
   const reduceAndSetState = (items) => {

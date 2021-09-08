@@ -50,7 +50,7 @@ export default function Home({ products }) {
   // }, [session, loading])
 
   return (
-    <>
+    <div className="index">
       <Header
         cartItems={cart}
         setCartCount={setCartCount}
@@ -59,7 +59,7 @@ export default function Home({ products }) {
       />
       <ListProducts products={products} addItem={addItem} />
       <Footer />
-    </>
+    </div>
   )
 }
 
