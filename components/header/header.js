@@ -7,7 +7,15 @@ import CartModalDesktop from "../cartModal/desktop/cartModalDesktop"
 
 const Header = ({ cartItems, cartCount, setCart, setCartCount }) => {
   const [openModal, setModal] = useState(false)
-  const Toggle = () => setModal(!openModal)
+
+  const Toggle = () => {
+    setModal(!openModal)
+    if (document.body.style.overflow !== "hidden") {
+      document.body.style.overflow = "hidden"
+    } else {
+      document.body.style.overflow = "scroll"
+    }
+  }
 
   return (
     <>
